@@ -1,2 +1,5 @@
 # final-linux-project-
-its a game for linux, try it out 
+
+> for the first time running in this game make sure to use the build file
+> sudo chmod +x build.sh
+> ./build.sh
