@@ -32,6 +32,8 @@ if [[ -f "$basic_commands" ]]; then
 	print_cc "$GREEN" " This file has all the files intact, procceding "
 else
 	print_cc "$RED" " Missing files! reinstall the git: $basic_commands"
+	exit
+
 fi
 
 clear

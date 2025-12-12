@@ -1,8 +1,8 @@
 |===================================================|
 |* type help for commands                           |
-|* clear - dir - tree -                             |
+|* clear - dir - tree - history -                   |
 |                                                   |
-|                                                   |
+|commands are all logged!                           |
 |                                                   |
 | ROBO-corp 1983                                    |
 ====================================================|

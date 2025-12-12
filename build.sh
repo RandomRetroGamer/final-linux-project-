@@ -11,6 +11,10 @@ RESET="\e[0m"
 # the print function to print text with colors, use the color variables before your text as such
 # print_cc "$BLUE" " printing colors "
 
+#path files for scripts and etc
+check_path="config/check.sh"
+
+#the check file is to check for necessary config files
 
 print_cc() {
     color="$1"
@@ -24,7 +28,6 @@ print_cc "$RED" "-- this is only made for debian / ubuntu distros are you ready 
 
 
 #a y / n question for user to see if they want to install the dependences they are going to need to run the game
-
 
 while true; do
     read -p "( y / n )  " yn
@@ -44,5 +47,13 @@ sudo apt install python3 python3-pip
 print_cc "$YELLOW" " Done installing dependences "
 print_cc "$GREEN" " Starting main.sh file "
 
+#making the scripts accessiable
+
 sudo chmod +x main.sh
+print_cc "$GREEN" "** chmod +x main.sh complete"
+
+sudo chmod +x $check_path.sh
+print_cc "$GREEN" "** chmod +x check.file complete"
+
 ./main.sh
+
