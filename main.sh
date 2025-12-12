@@ -45,6 +45,21 @@ history_terminal() {
     print_cc "$YELLOW" "==============="
 }
 
+all_history() {
+    print_cc "$BLUE" "=== All_History ==="
+
+    cat $history_file
+
+    print_cc "$BLUE" "==================="
+
+}
+
+exit_terminal() {
+    print_cc "$RED" "Exiting terminal..."
+
+    exit
+}
+
 #actual game main .code
 
 print_cc "$GREEN" " === enter game name here ==="
@@ -60,15 +75,34 @@ while true; do
 
     print_cc "$YELLOW" "output >> $user_input \n"
 
+
+
+
+
+
+
+
+
+
+
+    #if and elif statements that are the heart of the terminal.
     #clears the "terminal", don't you use linux?!
     if [ "$user_input" == "clear" ]; then
 
         clear_terminal
 
+    elif [ "$user_input" == "exit" ]; then
+
+        exit_terminal # stops the program from running any further
+
     elif [ "$user_input" == "history" ]; then
 
-        history_terminal
+        history_terminal #look at the functions section to see what this does
+        #shows the last ten lines of your history text file
 
+    elif [ "$user_input" == "all history" ]; then
+
+        all_history #shows all the history of your terminal
 
     else
 

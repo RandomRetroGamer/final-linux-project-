@@ -1,0 +1,3 @@
+** clear -- to clear terminal (duh)
+** history -- last 10 lines of history of commands
+** all history -- all lines of history of commands

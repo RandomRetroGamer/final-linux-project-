@@ -1,7 +1,11 @@
-
 lear
 history
 clear
 history
 claer
 clear
+all history
+all history
+clear
+exit
+exit

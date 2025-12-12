@@ -14,7 +14,6 @@ RESET="\e[0m"
 
 #varibles
 
-basic_commands="basic_commands.txt"
 
 #functions
 print_cc() {
@@ -24,17 +23,21 @@ print_cc() {
     echo -e "\033[${color}${text}\033[0m"
 }
 
+check_files() {
+    file=$1
+
+    if [[ -f "$file" ]];  then
+        print_cc "$GREEN" "$file, has been found"
+
+    else
+        print_cc "$RED" "$file, file has NOT been found"
+        print_cc "$YELLOW" " reinstall from git "
+    fi
+}
+
 #actual check .code
 
 print_cc "$BLUE" " Checking files in this folders"
 
-if [[ -f "$basic_commands" ]]; then
-	print_cc "$GREEN" " This file has all the files intact, procceding "
-else
-	print_cc "$RED" " Missing files! reinstall the git: $basic_commands"
-	exit
-
-fi
-
-clear
-
+check_files "basic_commands.txt"
+check_files "history.txt"
