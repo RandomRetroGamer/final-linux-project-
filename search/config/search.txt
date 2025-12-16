@@ -1,0 +1,10 @@
+|===================================================|
+|* robo-corp search engine!                         |
+|* search                                           |
+|                                                   |
+|searches are all logged!                           |
+|                                                   |
+| ROBO-corp 1983                                    |
+====================================================|
+-- how to use --
+search >topic here< to search for something

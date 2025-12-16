@@ -11,9 +11,6 @@ RESET="\e[0m"
 # the print function to print text with colors, use the color variables before your text as such
 # print_cc "$BLUE" " printing colors "
 
-#path files for scripts and etc
-check_path="config/check.sh"
-
 #the check file is to check for necessary config files
 
 print_cc() {
@@ -39,21 +36,71 @@ while true; do
     esac
 done
 
-#installing updates for ubuntu / debain based distros
+print_cc "$RED" "installing dependences"
 
 sudo apt update
-sudo apt install python3 python3-pip
+print_cc "$RED" " ** system updating"
 
-print_cc "$YELLOW" " Done installing dependences "
-print_cc "$GREEN" " Starting main.sh file "
+sudo apt install -y python3-pip
+print_cc "$RED" " ** installing python3-pip"
 
-#making the scripts accessiable
+sudo apt install -y ddgr
+print_cc "$RED" " ** installing ddgr"
 
-sudo chmod +x main.sh
-print_cc "$GREEN" "** chmod +x main.sh complete"
+pip3 install pygame
+print_cc "$RED" " ** installing pygame"
 
-sudo chmod +x $check_path.sh
-print_cc "$GREEN" "** chmod +x check.file complete"
+print_cc "$RED" " ** starting main.sh file"
 
-./main.sh
+MAIN_SCRIPT="main.sh"
+CHECK_SCRIPT="config/check.sh"
+SEARCH_SCRIPT="search/search.sh"
+SEARCH_BUILD_SCRIPT="search/config/search_build.sh"
+
+
+MAIN_SCRIPT="main.sh"
+CHECK_SCRIPT="config/check.sh"
+SEARCH_SCRIPT="search/search.sh" 
+SEARCH_BUILD_SCRIPT="search/config/search_build.sh"
+
+
+
+print_cc "$YELLOW" "Making scripts executable..."
+
+sudo chmod +x "$MAIN_SCRIPT" 2>/dev/null
+if [ $? -eq 0 ]; then
+    print_cc "$GREEN" "** chmod +x $MAIN_SCRIPT complete"
+else
+    print_cc "$RED" "ERROR: Could not find or set executable flag for $MAIN_SCRIPT"
+fi
+
+sudo chmod +x "$CHECK_SCRIPT" 2>/dev/null
+if [ $? -eq 0 ]; then
+    print_cc "$GREEN" "** chmod +x $CHECK_SCRIPT complete"
+else
+    print_cc "$RED" "ERROR: Could not find or set executable flag for $CHECK_SCRIPT"
+fi
+
+sudo chmod +x "$SEARCH_SCRIPT" 2>/dev/null
+if [ $? -eq 0 ]; then
+    print_cc "$GREEN" "** chmod +x $SEARCH_SCRIPT complete"
+else
+    print_cc "$RED" "ERROR: Could not find or set executable flag for $SEARCH_SCRIPT"
+fi
+
+sudo chmod +x "$SEARCH_BUILD_SCRIPT" 2>/dev/null
+if [ $? -eq 0 ]; then
+    print_cc "$GREEN" "** chmod +x $SEARCH_BUILD_SCRIPT complete"
+else
+    print_cc "$RED" "ERROR: Could not find or set executable flag for $SEARCH_BUILD_SCRIPT"
+fi
+
+
+print_cc "$RED" " -- starting build file for robocorp search -- "
+
+
+./$CHECK_SCRIPT
+./$SEARCH_BUILD_SCRIPT
+./$MAIN_SCRIPT
+
 

@@ -4,9 +4,9 @@ clear
 basic_commands="config/basic_commands.txt"
 check_files="config/check.sh"
 history_file="config/history.txt"
+search_main="search/search"
 
 #colors
-
 RED="\e[31m"
 GREEN="\e[32m"
 YELLOW="\e[33m"
@@ -16,7 +16,9 @@ RESET="\e[0m"
 # the print function to print text with colors, use the color variables before your text as such
 # print_cc "$BLUE" " printing colors "
 
+
 #functions
+
 
 #prints out the text with real colors?!
 print_cc() {
@@ -67,9 +69,10 @@ print_cc "$GREEN" " === enter game name here ==="
 cat $basic_commands
 
 while true; do
-    #reads the input of the user and outputs just cause, really the output doesn't really have a purpouse
+    user_input=$(print_cc "$GREEN" "RoboCorp: ")
 
-    read -p "${print_cc}${RED}: " user_input
+    read -p "/ $user_input" user_input
+    printf "%s\n" "$user_input" >> config/history.txt
 
     printf "%s\n" "$user_input" >> config/history.txt
 
@@ -85,7 +88,7 @@ while true; do
 
 
 
-    #if and elif statements that are the heart of the terminal.
+    #if and elif statements that are the heart of the terminal
     #clears the "terminal", don't you use linux?!
     if [ "$user_input" == "clear" ]; then
 
@@ -103,6 +106,12 @@ while true; do
     elif [ "$user_input" == "all history" ]; then
 
         all_history #shows all the history of your terminal
+
+
+    elif [[ "$user_input" == "search" ]]; then
+        PROJECT_ROOT="$(cd "$(dirname "$0")" && pwd)"
+        export PROJECT_ROOT
+        ./search/search.sh
 
     else
 
