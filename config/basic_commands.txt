@@ -1,8 +1,10 @@
 |===================================================|
 |* type help for commands                           |
-|* clear - dir - tree - history -                   |
+|* clear - search - tetris - history -              |
 |                                                   |
 |commands are all logged!                           |
 |                                                   |
 | ROBO-corp 1983                                    |
 ====================================================|
+** yes tetris is in here 
+** try out the search program!

@@ -1,17 +1,10 @@
 clear
 
-#colors
-
 RED="\e[31m"
 GREEN="\e[32m"
 YELLOW="\e[33m"
 BLUE="\e[34m"
 RESET="\e[0m"
-
-# the print function to print text with colors, use the color variables before your text as such
-# print_cc "$BLUE" " printing colors "
-
-#the check file is to check for necessary config files
 
 print_cc() {
     color="$1"
@@ -22,9 +15,6 @@ print_cc() {
 
 print_cc "$GREEN" "-- running build.sh file --"
 print_cc "$RED" "-- this is only made for debian / ubuntu distros are you ready to continue ? --"
-
-
-#a y / n question for user to see if they want to install the dependences they are going to need to run the game
 
 while true; do
     read -p "( y / n )  " yn
@@ -41,6 +31,10 @@ print_cc "$RED" "installing dependences"
 sudo apt update
 print_cc "$RED" " ** system updating"
 
+# Pygame system dependencies (SDL libraries) for guaranteed first-run success
+sudo apt install -y libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev python3-dev smpeg
+print_cc "$RED" " ** installing Pygame system dependencies (SDL libraries)"
+
 sudo apt install -y python3-pip
 print_cc "$RED" " ** installing python3-pip"
 
@@ -56,13 +50,6 @@ MAIN_SCRIPT="main.sh"
 CHECK_SCRIPT="config/check.sh"
 SEARCH_SCRIPT="search/search.sh"
 SEARCH_BUILD_SCRIPT="search/config/search_build.sh"
-
-
-MAIN_SCRIPT="main.sh"
-CHECK_SCRIPT="config/check.sh"
-SEARCH_SCRIPT="search/search.sh" 
-SEARCH_BUILD_SCRIPT="search/config/search_build.sh"
-
 
 
 print_cc "$YELLOW" "Making scripts executable..."
@@ -102,5 +89,3 @@ print_cc "$RED" " -- starting build file for robocorp search -- "
 ./$CHECK_SCRIPT
 ./$SEARCH_BUILD_SCRIPT
 ./$MAIN_SCRIPT
-
-

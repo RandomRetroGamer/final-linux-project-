@@ -81,3 +81,43 @@ exit
 search
 search
 exit
+search
+search
+search wiki
+exit
+exit
+exit
+dir
+dir
+clear
+clear
+search
+search
+search linux
+exit
+exit
+exit
+tetris
+tetris
+exit
+exit
+tetris
+tetris
+exit
+exit
+tetris
+tetris
+tetris
+tetris
+tetris
+tetris
+exit
+exit
+exit
+exit
+dir
+dir
+search
+search
+history
+search hello world

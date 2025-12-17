@@ -6,6 +6,8 @@ check_files="config/check.sh"
 history_file="config/history.txt"
 search_main="search/search"
 
+tetris_folder="tetris/main.py"
+
 #colors
 RED="\e[31m"
 GREEN="\e[32m"
@@ -64,7 +66,7 @@ exit_terminal() {
 
 #actual game main .code
 
-print_cc "$GREEN" " === enter game name here ==="
+print_cc "$GREEN" " === RoboCorp ==="
 
 cat $basic_commands
 
@@ -112,6 +114,11 @@ while true; do
         PROJECT_ROOT="$(cd "$(dirname "$0")" && pwd)"
         export PROJECT_ROOT
         ./search/search.sh
+
+    elif [[ "$user_input" == "tetris" ]]; then
+        print_cc "$RED" "starting tetris"
+        python3 "$tetris_folder"
+        
 
     else
 
